@@ -48,7 +48,9 @@ package, you can find on the [pkg.go.dev][go_dev_url] page.
 
 ## 🧩 Options
 
-- `-p [path]` set a **path** to the file
+| Option | Description          | Is required? | Default value |
+|--------|----------------------|--------------|---------------|
+| `-p`   | set a path to a file | yes          | `./file.json` |
 
 ## 💡 Motivation
 
