@@ -1,4 +1,4 @@
-# {{repository.name}}
+# {{PROJECT}}
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
@@ -6,7 +6,7 @@
 [![Wiki][wiki_img]][wiki_url]
 [![License][license_img]][license_url]
 
-**{{repository.name}}** description.
+**{{PROJECT}}** description.
 
 Features:
 
@@ -21,7 +21,7 @@ is required.
 Installation is done by using the [`go install`][go_install] command:
 
 ```console
-go install github.com/koddr/{{repository.name}}@latest
+go install github.com/koddr/{{PROJECT}}@latest
 ```
 
 Prepare your data:
@@ -31,18 +31,17 @@ Prepare your data:
 > 💡 Note: See the repository's [Wiki page][wiki_url] to understand 
 > structure of the file.
 
-Next, run `{{repository.name}}` with (_or without_) options:
+Next, run `{{PROJECT}}` with (_or without_) options:
 
 ```console
-{{repository.name}} -p ./path/to/file
+{{PROJECT}} -p ./path/to/file
 ```
 
 Done! 🎉 Your tasks have been executed.
 
 ## 🧩 Options
 
-- `-p [path]` set a **path** to the file with tasks in any of the supporting 
-  format (see [Wiki][wiki_options_url]);
+- `-p [path]` set a **path** to the file (see [Wiki][wiki_options_url]);
 
 ## 🏆 A win-win cooperation
 
@@ -64,15 +63,15 @@ for people and robots by [Vic Shóstak][author].
 [go_install]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
 [go_version_img]: https://img.shields.io/badge/Go-1.20+-00ADD8?style=for-the-badge&logo=go
 [go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
-[go_report_url]: https://goreportcard.com/report/github.com/koddr/yatr
+[go_report_url]: https://goreportcard.com/report/github.com/koddr/{{PROJECT}}
 [go_code_coverage_img]: https://img.shields.io/badge/code_coverage-0%25-success?style=for-the-badge&logo=none
-[go_dev_url]: https://pkg.go.dev/github.com/koddr/{{repository.name}}
+[go_dev_url]: https://pkg.go.dev/github.com/koddr/{{PROJECT}}
 [wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
-[wiki_url]: https://github.com/koddr/{{repository.name}}/wiki
-[wiki_options_url]: https://github.com/koddr/{{repository.name}}/wiki#options
+[wiki_url]: https://github.com/koddr/{{PROJECT}}/wiki
+[wiki_options_url]: https://github.com/koddr/{{PROJECT}}/wiki#options
 [license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
-[license_url]: https://github.com/koddr/{{repository.name}}/blob/main/LICENSE
-[repo_url]: https://github.com/koddr/{{repository.name}}
-[repo_issues_url]: https://github.com/koddr/{{repository.name}}/issues
-[repo_pull_request_url]: https://github.com/{{repository.name}}/yatr/pulls
+[license_url]: https://github.com/koddr/{{PROJECT}}/blob/main/LICENSE
+[repo_url]: https://github.com/koddr/{{PROJECT}}
+[repo_issues_url]: https://github.com/koddr/{{PROJECT}}/issues
+[repo_pull_request_url]: https://github.com/koddr/{{PROJECT}}/pulls
 [author]: https://github.com/koddr
