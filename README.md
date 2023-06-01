@@ -12,6 +12,7 @@ Features:
 
 - 100% **free** and **open source**
 - ...
+- ...
 
 ## ⚡️ Quick start
 
@@ -29,7 +30,7 @@ Prepare your data:
 - ...
 - ...
 
-> 💡 Note: See the repository's [Wiki page][wiki_url] to understand 
+> 💡 Note: See the repository's [Wiki][wiki_url] page to understand the 
 > structure of the file.
 
 Next, run `{{PROJECT}}` with (_or without_) options:
@@ -40,9 +41,14 @@ Next, run `{{PROJECT}}` with (_or without_) options:
 
 Done! 🎉 Your tasks have been executed.
 
+## ✨ Usage
+
+Basic usage and full code examples of all functions of the `{{PROJECT}}` 
+package, you can find on the [pkg.go.dev][go_dev_url] page.
+
 ## 🧩 Options
 
-- `-p [path]` set a **path** to the file (see [Wiki][wiki_options_url]);
+- `-p [path]` set a **path** to the file
 
 ## 💡 Motivation
 
@@ -73,7 +79,6 @@ for people and robots by [Vic Shóstak][author].
 [go_dev_url]: https://pkg.go.dev/github.com/koddr/{{PROJECT}}
 [wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
 [wiki_url]: https://github.com/koddr/{{PROJECT}}/wiki
-[wiki_options_url]: https://github.com/koddr/{{PROJECT}}/wiki#options
 [license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
 [license_url]: https://github.com/koddr/{{PROJECT}}/blob/main/LICENSE
 [repo_url]: https://github.com/koddr/{{PROJECT}}
