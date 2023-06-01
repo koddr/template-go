@@ -6,7 +6,7 @@
 [![Wiki][wiki_img]][wiki_url]
 [![License][license_img]][license_url]
 
-**{{PROJECT}}** description.
+**{{PROJECT}}** description ...
 
 Features:
 
@@ -27,6 +27,7 @@ go install github.com/koddr/{{PROJECT}}@latest
 Prepare your data:
 
 - ...
+- ...
 
 > 💡 Note: See the repository's [Wiki page][wiki_url] to understand 
 > structure of the file.
@@ -42,6 +43,10 @@ Done! 🎉 Your tasks have been executed.
 ## 🧩 Options
 
 - `-p [path]` set a **path** to the file (see [Wiki][wiki_options_url]);
+
+## 💡 Motivation
+
+...
 
 ## 🏆 A win-win cooperation
 
