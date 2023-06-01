@@ -1,2 +1,78 @@
-# template-go
-The template repository for my next Go project.
+# {{repository.name}}
+
+[![Go version][go_version_img]][go_dev_url]
+[![Go report][go_report_img]][go_report_url]
+![Code coverage][go_code_coverage_img]
+[![Wiki][wiki_img]][wiki_url]
+[![License][license_img]][license_url]
+
+**{{repository.name}}** description.
+
+Features:
+
+- 100% **free** and **open source**
+- ...
+
+## ⚡️ Quick start
+
+First, [download][go_download] and install **Go**. Version `1.20` (or higher)
+is required.
+
+Installation is done by using the [`go install`][go_install] command:
+
+```console
+go install github.com/koddr/{{repository.name}}@latest
+```
+
+Prepare your data:
+
+- ...
+
+> 💡 Note: See the repository's [Wiki page][wiki_url] to understand 
+> structure of the file.
+
+Next, run `{{repository.name}}` with (_or without_) options:
+
+```console
+{{repository.name}} -p ./path/to/file
+```
+
+Done! 🎉 Your tasks have been executed.
+
+## 🧩 Options
+
+- `-p [path]` set a **path** to the file with tasks in any of the supporting 
+  format (see [Wiki][wiki_options_url]);
+
+## 🏆 A win-win cooperation
+
+And now, I invite you to participate in this project! Let's work **together** to
+create the **most useful** tool for developers on the web today.
+
+- [Issues][repo_issues_url]: ask questions and submit your features.
+- [Pull requests][repo_pull_request_url]: send your improvements to the current.
+
+Your PRs & issues are welcome! Thank you 😘
+
+## ⚠️ License
+
+[`{{repository.name}}`][repo_url] is free and open-source software licensed 
+under the [Apache 2.0 License][license_url], created and supported with 🩵 
+for people and robots by [Vic Shóstak][author].
+
+[go_download]: https://golang.org/dl/
+[go_install]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
+[go_version_img]: https://img.shields.io/badge/Go-1.20+-00ADD8?style=for-the-badge&logo=go
+[go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
+[go_report_url]: https://goreportcard.com/report/github.com/koddr/yatr
+[go_code_coverage_img]: https://img.shields.io/badge/code_coverage-0%25-success?style=for-the-badge&logo=none
+[go_dev_url]: https://pkg.go.dev/github.com/koddr/{{repository.name}}
+[wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
+[wiki_url]: https://github.com/koddr/{{repository.name}}/wiki
+[wiki_options_url]: https://github.com/koddr/{{repository.name}}/wiki#options
+[license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+[license_url]: https://github.com/koddr/{{repository.name}}/blob/main/LICENSE
+[repo_url]: https://github.com/koddr/{{repository.name}}
+[repo_issues_url]: https://github.com/koddr/{{repository.name}}/issues
+[repo_pull_request_url]: https://github.com/{{repository.name}}/yatr/pulls
+[author]: https://github.com/koddr
