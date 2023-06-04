@@ -1,0 +1,71 @@
+project_name: project
+report_sizes: true
+
+before:
+  hooks: [ go mod tidy ]
+
+builds:
+  -
+    id: default
+    env: [ CGO_ENABLED=0 ]
+    goos: [ linux, windows ]
+    goarch: [ amd64, arm64 ]
+#    skip: true # useful for library projects
+
+  - # HACK for macOS Ventura (13.x), which not supported UPX
+    id: macOS_only
+    env: [ CGO_ENABLED=0 ]
+    goos: [ darwin ]
+    goarch: [ amd64, arm64 ]
+#    skip: true # useful for library projects
+
+upx:
+  -
+    ids: [ default ]
+    enabled: true
+    compress: best
+    lzma: true
+    brute: true
+#    goos: [ darwin ] # wait for v1.19
+
+brews:
+  -
+    tap:
+      owner: koddr
+      name: homebrew-tap
+      branch: main
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+      pull_request:
+        enabled: true
+#        draft: true # wait for v1.19
+    commit_author:
+      name: Vic Shóstak
+      email: koddr.me@gmail.com
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+    folder: Formula
+    caveats: How to use this project.
+    homepage: "https://github.com/koddr/{{ .ProjectName }}"
+    description: Description of my project.
+    license: Apache 2.0
+    skip_upload: true
+    dependencies:
+      - name: git
+
+nfpms:
+  -
+    maintainer: Vic Shóstak <koddr.me@gmail.com>
+    description: Description of my project.
+    homepage: "https://github.com/koddr/{{ .ProjectName }}"
+    license: Apache 2.0
+    formats: [ deb, rpm, apk, archlinux ]
+#    dependencies: [ git ]
+
+archives:
+  -
+    format_overrides:
+      - goos: windows
+        format: zip
+    files: [ LICENSE, README.md, SECURITY.md ]
+
+checksum:
+  name_template: "checksums.txt"
