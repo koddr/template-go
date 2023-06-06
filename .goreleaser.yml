@@ -1,6 +1,9 @@
 project_name: project
 report_sizes: true
 
+env_files:
+  github_token: ~/.github_token
+
 before:
   hooks: [ "go mod tidy", "go mod download" ]
 
@@ -33,7 +36,7 @@ brews:
       owner: koddr
       name: homebrew-tap
       branch: main
-      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+      token: "{{ .Env.GITHUB_TOKEN }}"
       pull_request:
         enabled: true
 #        draft: true # wait for v1.19
@@ -44,9 +47,11 @@ brews:
       email: koddr.me@gmail.com
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
     folder: Formula
-    caveats: How to use this project.
+    caveats: |
+      How to use this project.
     homepage: "https://github.com/koddr/{{ .ProjectName }}"
-    description: Description of my project.
+    description: |
+      Description of my project.
     license: Apache 2.0
     skip_upload: false
 #    dependencies:
@@ -55,7 +60,8 @@ brews:
 nfpms:
   -
     maintainer: Vic Shóstak <koddr.me@gmail.com>
-    description: Description of my project.
+    description: |
+      Description of my project.
     homepage: "https://github.com/koddr/{{ .ProjectName }}"
     license: Apache 2.0
     formats: [ deb, rpm, apk, archlinux ]
