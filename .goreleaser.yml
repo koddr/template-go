@@ -78,7 +78,7 @@ brews:
       owner: koddr
       name: homebrew-tap
       branch: main
-      token: "{{ .Env.GITHUB_TOKEN }}"
+      token: ~/.ssh/id_ed25519_github_homebrew_tap
       pull_request:
         enabled: true
 #        draft: true # wait for v1.19
@@ -149,16 +149,16 @@ changelog:
     exclude: [ "^*.md:", "^*.ya?ml:" ]
   groups:
     - title: Features
-      regexp: "^.*?feature(\([[:word:]]+\))??!?:.+$"
+      regexp: ^.*?feature(\([[:word:]]+\))??!?:.+$
       order: 0
     - title: Bug fixes
-      regexp: "^.*?bug(\([[:word:]]+\))??!?:.+$"
+      regexp: ^.*?bug(\([[:word:]]+\))??!?:.+$
       order: 1
     - title: Updates
-      regexp: "^.*?update(\([[:word:]]+\))??!?:.+$"
+      regexp: ^.*?update(\([[:word:]]+\))??!?:.+$
       order: 2
     - title: Security issues
-      regexp: "^.*?security(\([[:word:]]+\))??!?:.+$"
+      regexp: ^.*?security(\([[:word:]]+\))??!?:.+$
       order: 3
     - title: Others
       order: 999
