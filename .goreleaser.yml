@@ -101,7 +101,8 @@ brews:
 #      - name: git
 
 dockers:
-  - id: "{{ .ProjectName }}"
+  -
+    id: "{{ .ProjectName }}"
     ids: [ default ]
     image_templates:
       - "koddr/{{ .ProjectName }}:latest"
