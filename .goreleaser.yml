@@ -100,6 +100,25 @@ brews:
 #    dependencies:
 #      - name: git
 
+dockers:
+  - id: "{{ .ProjectName }}"
+    ids: [ default ]
+    image_templates:
+      - "koddr/{{ .ProjectName }}:latest"
+      - "koddr/{{ .ProjectName }}:{{ .Tag }}"
+      - "koddr/{{ .ProjectName }}:v{{ .Major }}"
+      - "koddr/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
+    build_flag_templates:
+      - "--pull"
+      - "--label=org.opencontainers.image.created={{ .Date }}"
+      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
+      - "--label=org.opencontainers.image.version={{ .Version }}"
+      - "--platform=linux/amd64"
+    skip_push: false
+    push_flags:
+      - --tls-verify=false
+
 nfpms:
   -
     maintainer: Vic Shóstak <koddr.me@gmail.com>
