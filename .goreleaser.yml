@@ -78,3 +78,10 @@ archives:
 
 checksum:
   name_template: "checksums.txt"
+
+changelog:
+  use: github
+  sort: asc
+  abbrev: -1
+  filters:
+    exclude: [ "^*.md:" ]
