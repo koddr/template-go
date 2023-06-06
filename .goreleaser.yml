@@ -2,7 +2,7 @@ project_name: project
 report_sizes: true
 
 before:
-  hooks: [ go mod tidy ]
+  hooks: [ "go mod tidy", "go mod download" ]
 
 builds:
   -
@@ -17,7 +17,6 @@ builds:
     env: [ CGO_ENABLED=0 ]
     goos: [ darwin ]
     goarch: [ amd64, arm64 ]
-#    skip: true # useful for library projects
 
 upx:
   -
@@ -38,6 +37,8 @@ brews:
       pull_request:
         enabled: true
 #        draft: true # wait for v1.19
+      git:
+        url: "ssh://git@github.com:koddr/homebrew-tap.git"
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
@@ -47,9 +48,9 @@ brews:
     homepage: "https://github.com/koddr/{{ .ProjectName }}"
     description: Description of my project.
     license: Apache 2.0
-    skip_upload: true
-    dependencies:
-      - name: git
+    skip_upload: false
+#    dependencies:
+#      - name: git
 
 nfpms:
   -
@@ -65,7 +66,8 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
-    files: [ LICENSE, README.md, SECURITY.md ]
+    files: [ LICENSE, README.md ]
+    rlcp: true
 
 checksum:
   name_template: "checksums.txt"
