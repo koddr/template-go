@@ -126,4 +126,19 @@ changelog:
   sort: asc
   abbrev: -1
   filters:
-    exclude: [ "^*.md:" ]
+    exclude: [ "^*.md:", "^*.ya?ml:" ]
+  groups:
+    - title: Features
+      regexp: "^.*?feature(\([[:word:]]+\))??!?:.+$"
+      order: 0
+    - title: Bug fixes
+      regexp: "^.*?bug(\([[:word:]]+\))??!?:.+$"
+      order: 1
+    - title: Updates
+      regexp: "^.*?update(\([[:word:]]+\))??!?:.+$"
+      order: 2
+    - title: Security issues
+      regexp: "^.*?security(\([[:word:]]+\))??!?:.+$"
+      order: 3
+    - title: Others
+      order: 999
