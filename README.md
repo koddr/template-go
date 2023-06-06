@@ -25,6 +25,19 @@ Installation is done by using the [`go install`][go_install] command:
 go install github.com/koddr/{{PROJECT}}@latest
 ```
 
+> 💡 Note: See the repository's [Release page][repo_releases_url], if you want
+> to download a ready-made `deb`, `rpm`, `apk` or `Arch Linux` package.
+
+GNU/Linux and macOS users available way to install via [Homebrew][brew_url]:
+
+```console
+# Tap a new formula:
+brew tap koddr/tap
+
+# Installation:
+brew install koddr/tap/{{PROJECT}}
+```
+
 Prepare your data:
 
 - ...
@@ -79,11 +92,13 @@ for people and robots by [Vic Shóstak][author].
 [go_report_url]: https://goreportcard.com/report/github.com/koddr/{{PROJECT}}
 [go_code_coverage_img]: https://img.shields.io/badge/code_coverage-0%25-success?style=for-the-badge&logo=none
 [go_dev_url]: https://pkg.go.dev/github.com/koddr/{{PROJECT}}
+[brew_url]: https://brew.sh
 [wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
 [wiki_url]: https://github.com/koddr/{{PROJECT}}/wiki
 [license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
 [license_url]: https://github.com/koddr/{{PROJECT}}/blob/main/LICENSE
 [repo_url]: https://github.com/koddr/{{PROJECT}}
+[repo_releases_url]: https://github.com/koddr/{{PROJECT}}/releases
 [repo_issues_url]: https://github.com/koddr/{{PROJECT}}/issues
 [repo_pull_request_url]: https://github.com/koddr/{{PROJECT}}/pulls
 [author]: https://github.com/koddr
