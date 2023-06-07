@@ -54,6 +54,16 @@ Next, run `{{PROJECT}}` with (_or without_) options:
 
 Done! 🎉 Your tasks have been executed.
 
+### 🐳 Docker-way to quick start
+
+If you don't want to physically install `{{PROJECT}}` to your system, you feel
+free to using our [official Docker image][docker_image_url] and run it from
+isolated container:
+
+```console
+docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} koddr/{{PROJECT}}:latest [COMMANDS]
+```
+
 ## ✨ Usage
 
 Basic usage and full code examples of all functions of the `{{PROJECT}}` 
@@ -92,6 +102,7 @@ for people and robots by [Vic Shóstak][author].
 [go_report_url]: https://goreportcard.com/report/github.com/koddr/{{PROJECT}}
 [go_code_coverage_img]: https://img.shields.io/badge/code_coverage-0%25-success?style=for-the-badge&logo=none
 [go_dev_url]: https://pkg.go.dev/github.com/koddr/{{PROJECT}}
+[docker_image_url]: https://hub.docker.com/repository/docker/koddr/{{PROJECT}}
 [brew_url]: https://brew.sh
 [wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
 [wiki_url]: https://github.com/koddr/{{PROJECT}}/wiki
