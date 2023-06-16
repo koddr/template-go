@@ -75,6 +75,10 @@ package, you can find on the [pkg.go.dev][go_dev_url] page.
 |--------|----------------------|--------------|---------------|
 | `-p`   | set a path to a file | yes          | `./file.json` |
 
+## ✨ Solving case
+
+...
+
 ## 💡 Motivation
 
 ...
@@ -91,7 +95,7 @@ Your PRs & issues are welcome! Thank you 😘
 
 ## ⚠️ License
 
-[`{{repository.name}}`][repo_url] is free and open-source software licensed 
+[`{{PROJECT}}`][repo_url] is free and open-source software licensed 
 under the [Apache 2.0 License][license_url], created and supported with 🩵 
 for people and robots by [Vic Shóstak][author].
 
