@@ -151,7 +151,7 @@ changelog:
   sort: asc
   abbrev: -1
   filters:
-    exclude: [ "^*.md:", "^*.yml:" ]
+    exclude: [ "^*.md", "^*.ya?ml" ]
   groups:
     - title: Features
       regexp: ^.*?(F|f)eature.*?$
@@ -168,5 +168,8 @@ changelog:
     - title: Security issues
       regexp: ^.*?(S|s)ecurity.*?$
       order: 4
+    - title: Delete unused or stale
+      regexp: ^.*?((D|d)elete)|((U|u)nused)|((S|s)tale).*?$
+      order: 5
     - title: Others
       order: 999
