@@ -10,7 +10,7 @@
 
 Features:
 
-- 100% **free** and **open source**
+- 100% **free** and **open source**.
 - ...
 - ...
 
@@ -71,9 +71,9 @@ package, you can find on the [pkg.go.dev][go_dev_url] page.
 
 ## 🧩 Options
 
-| Option | Description          | Is required? | Default value |
-|--------|----------------------|--------------|---------------|
-| `-p`   | set a path to a file | yes          | `./file.json` |
+| Option | Description          | Is required? | Type     | Default value |
+|--------|----------------------|--------------|----------|---------------|
+| `-p`   | set a path to a file | yes          | `string` | `./file.json` |
 
 ## ✨ Solving case
 
