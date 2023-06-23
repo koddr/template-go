@@ -2,9 +2,9 @@
 
 [![Go version][go_version_img]][go_dev_url]
 [![Go report][go_report_img]][go_report_url]
-![Code coverage][go_code_coverage_img]
-[![Wiki][wiki_img]][wiki_url]
-[![License][license_img]][license_url]
+[![Code coverage][go_code_coverage_img]][repo_url]
+[![Wiki][repo_wiki_img]][repo_wiki_url]
+[![License][repo_license_img]][repo_license_url]
 
 **{{PROJECT}}** description ...
 
@@ -16,10 +16,10 @@ Features:
 
 ## ⚡️ Quick start
 
-First, [download][go_download] and install **Go**. Version `1.20` (or higher)
-is required.
+First, [download][go_download_url] and install **Go**. Version `1.20` (or 
+higher) is required.
 
-Installation is done by using the [`go install`][go_install] command:
+Installation is done by using the [`go install`][go_install_url] command:
 
 ```console
 go install github.com/koddr/{{PROJECT}}@latest
@@ -44,7 +44,7 @@ Prepare your data:
 - ...
 - ...
 
-> 💡 Note: See the repository's [Wiki][wiki_url] page to understand the 
+> 💡 Note: See the repository's [Wiki][repo_wiki_url] page to understand the 
 > structure of the file.
 
 Next, run `{{PROJECT}}` with (_or without_) options:
@@ -97,24 +97,37 @@ Your PRs & issues are welcome! Thank you 😘
 ## ⚠️ License
 
 [`{{PROJECT}}`][repo_url] is free and open-source software licensed 
-under the [Apache 2.0 License][license_url], created and supported with 🩵 
-for people and robots by [Vic Shóstak][author].
+under the [Apache 2.0 License][repo_license_url], created and supported with 🩵 
+for people and robots by [Vic Shóstak][author_url].
 
-[go_download]: https://golang.org/dl/
-[go_install]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
-[go_version_img]: https://img.shields.io/badge/Go-1.20+-00ADD8?style=for-the-badge&logo=go
-[go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
+<!-- Go links -->
+
+[go_download_url]: https://golang.org/dl/
+[go_install_url]: https://golang.org/cmd/go/#hdr-Compile_and_install_packages_and_dependencies
 [go_report_url]: https://goreportcard.com/report/github.com/koddr/{{PROJECT}}
-[go_code_coverage_img]: https://img.shields.io/badge/code_coverage-0%25-success?style=for-the-badge&logo=none
 [go_dev_url]: https://pkg.go.dev/github.com/koddr/{{PROJECT}}
-[docker_image_url]: https://hub.docker.com/repository/docker/koddr/{{PROJECT}}
-[brew_url]: https://brew.sh
-[wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
-[wiki_url]: https://github.com/koddr/{{PROJECT}}/wiki
-[license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
-[license_url]: https://github.com/koddr/{{PROJECT}}/blob/main/LICENSE
+
+[go_version_img]: https://img.shields.io/badge/Go-1.20+-00ADD8?style=for-the-badge&logo=go
+[go_code_coverage_img]: https://img.shields.io/badge/code_coverage-0%25-success?style=for-the-badge&logo=none
+[go_report_img]: https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none
+
+<!-- Repository links -->
+
 [repo_url]: https://github.com/koddr/{{PROJECT}}
-[repo_releases_url]: https://github.com/koddr/{{PROJECT}}/releases
 [repo_issues_url]: https://github.com/koddr/{{PROJECT}}/issues
 [repo_pull_request_url]: https://github.com/koddr/{{PROJECT}}/pulls
-[author]: https://github.com/koddr
+[repo_releases_url]: https://github.com/koddr/{{PROJECT}}/releases
+[repo_wiki_url]: https://github.com/koddr/{{PROJECT}}/wiki
+[repo_license_url]: https://github.com/koddr/{{PROJECT}}/blob/main/LICENSE
+
+[repo_wiki_img]: https://img.shields.io/badge/docs-wiki_page-blue?style=for-the-badge&logo=none
+[repo_license_img]: https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none
+
+<!-- Author links -->
+
+[author_url]: https://github.com/koddr
+
+<!-- Readme links -->
+
+[docker_image_url]: https://hub.docker.com/repository/docker/koddr/{{PROJECT}}
+[brew_url]: https://brew.sh
