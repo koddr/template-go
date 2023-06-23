@@ -28,7 +28,8 @@ go install github.com/koddr/{{PROJECT}}@latest
 > 💡 Note: See the repository's [Release page][repo_releases_url], if you want
 > to download a ready-made `deb`, `rpm`, `apk` or `Arch Linux` package.
 
-GNU/Linux and macOS users available way to install via [Homebrew][brew_url]:
+Also, GNU/Linux and macOS users available way to install via 
+[Homebrew][brew_url]:
 
 ```console
 # Tap a new formula:
