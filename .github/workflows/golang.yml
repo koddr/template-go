@@ -28,6 +28,9 @@ jobs:
       - name: Run "go-critic/go-critic" for code linting
         run: go run github.com/go-critic/go-critic/cmd/gocritic@latest check -enableAll ./...
 
+      - name: Run "google/osv-scanner" to identify vulnerabilities in dependencies
+        run: go run github.com/google/osv-scanner/cmd/osv-scanner@latest -r .
+
       - name: Run Go test with coverage report
         run: go test -race -coverprofile=coverage.out -covermode=atomic
 
