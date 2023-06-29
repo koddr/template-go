@@ -18,15 +18,9 @@ builds:
   -
     id: default
     env: [ CGO_ENABLED=0 ]
-    goos: [ linux, windows ]
+    goos: [ linux, windows, darwin ]
     goarch: [ amd64, arm64 ]
 #    skip: true # useful for library projects
-
-  - # HACK for macOS Ventura (13.x), which not supported UPX
-    id: macOS_only
-    env: [ CGO_ENABLED=0 ]
-    goos: [ darwin ]
-    goarch: [ amd64, arm64 ]
 
 upx:
   -
@@ -35,10 +29,11 @@ upx:
     compress: best
     lzma: true
     brute: true
-#    goos: [ darwin ] # wait for v1.19
+    goos: [ linux, windows ] # skip darwin (macOS 13.x Ventura is not supported now)
+    goarch: [ amd64, arm64 ]
 
 release:
-  ids: [ default, macOS_only ]
+  ids: [ default ]
   draft: true
   replace_existing_draft: true
   target_commitish: "{{ .Commit }}"
@@ -88,14 +83,13 @@ release:
 
 brews:
   -
-    tap:
+    repository:
       owner: koddr
       name: homebrew-tap
       branch: main
       token: "{{ .Env.GITHUB_TOKEN }}"
       pull_request:
         enabled: true
-#        draft: true # wait for v1.19
       git:
         url: "git@github.com:koddr/homebrew-tap.git"
         private_key: "{{ .Env.PRIVATE_KEY_PATH }}"
@@ -150,7 +144,6 @@ archives:
       - goos: windows
         format: zip
     files: [ LICENSE, README.md ]
-    rlcp: true
 
 checksum:
   name_template: "checksums.txt"
