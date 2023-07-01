@@ -81,33 +81,6 @@ release:
   disable: false
   skip_upload: false
 
-brews:
-  -
-    repository:
-      owner: koddr
-      name: homebrew-tap
-      branch: main
-      token: '{{ .Env.GITHUB_TOKEN }}'
-      pull_request:
-        enabled: true
-      git:
-        url: 'git@github.com:koddr/homebrew-tap.git'
-        private_key: '{{ .Env.PRIVATE_KEY_PATH }}'
-    commit_author:
-      name: Vic Shóstak
-      email: koddr.me@gmail.com
-    commit_msg_template: 'Brew formula update for {{ .ProjectName }} version {{ .Tag }}'
-    folder: Formula
-    caveats: |
-      How to use this project.
-    homepage: 'https://github.com/koddr/{{ .ProjectName }}'
-    description: |
-      Description of my project.
-    license: Apache 2.0
-    skip_upload: false
-#    dependencies:
-#      - name: git
-
 dockers:
   -
     id: '{{ .ProjectName }}'
@@ -128,6 +101,33 @@ dockers:
     push_flags:
       - '--tls-verify=false'
 
+brews:
+  -
+    repository:
+      owner: koddr
+      name: homebrew-tap
+      branch: main
+      token: '{{ .Env.GITHUB_TOKEN }}'
+      pull_request:
+        enabled: true
+      git:
+        url: 'git@github.com:koddr/homebrew-tap.git'
+        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}' # don't forget to create this before release!
+    commit_author:
+      name: Vic Shóstak
+      email: koddr.me@gmail.com
+    commit_msg_template: 'Brew formula update for {{ .ProjectName }} version {{ .Tag }}'
+    folder: Formula
+    caveats: |
+      How to use this project.
+    homepage: 'https://github.com/koddr/{{ .ProjectName }}'
+    description: |
+      Description of my project.
+    license: Apache 2.0
+    skip_upload: false
+#    dependencies:
+#      - name: git
+
 nix:
   -
     name: '{{ .ProjectName }}'
@@ -143,12 +143,13 @@ nix:
     repository:
       owner: koddr
       name: 'nixpkg-{{ .ProjectName }}'
+      branch: main
       token: '{{ .Env.GITHUB_TOKEN }}'
       pull_request:
         enabled: true
       git:
         url: 'git@github.com:koddr/nixpkg-{{ .ProjectName }}.git'
-        private_key: '{{ .Env.PRIVATE_KEY_PATH }}'
+        private_key: '{{ .Env.NIX_PRIVATE_KEY_PATH }}' # don't forget to create this before release!
 
 nfpms:
   -
