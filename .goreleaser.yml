@@ -112,7 +112,9 @@ brews:
         enabled: true
       git:
         url: 'git@github.com:koddr/homebrew-tap.git'
-        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}' # don't forget to `ssh-keygen -t ed25519 -C "koddr.me@gmail.com"`
+        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}'
+        # don't forget to create ssh key WITH password protection:
+        # $ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_koddr_homebrew-tap -C "koddr.me@gmail.com"
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
@@ -142,14 +144,16 @@ nix:
     skip_upload: false
     repository:
       owner: koddr
-      name: 'nixpkg-{{ .ProjectName }}'
+      name: nur
       branch: main
       token: '{{ .Env.GITHUB_TOKEN }}'
       pull_request:
         enabled: true
       git:
-        url: 'git@github.com:koddr/nixpkg-{{ .ProjectName }}.git'
-        private_key: '{{ .Env.NIX_PRIVATE_KEY_PATH }}' # don't forget to `ssh-keygen -t ed25519 -C "koddr.me@gmail.com"`
+        url: 'git@github.com:koddr/nur.git'
+        private_key: '{{ .Env.NIX_PRIVATE_KEY_PATH }}'
+        # don't forget to create ssh key WITHOUT password protection:
+        # $ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_koddr_nur -C "koddr.me@gmail.com" -N '""'
 
 nfpms:
   -
