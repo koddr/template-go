@@ -112,7 +112,7 @@ brews:
         enabled: true
       git:
         url: 'git@github.com:koddr/homebrew-tap.git'
-        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}' # don't forget to create this before release!
+        private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}' # don't forget to `ssh-keygen -t ed25519 -C "koddr.me@gmail.com"`
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
@@ -149,7 +149,7 @@ nix:
         enabled: true
       git:
         url: 'git@github.com:koddr/nixpkg-{{ .ProjectName }}.git'
-        private_key: '{{ .Env.NIX_PRIVATE_KEY_PATH }}' # don't forget to create this before release!
+        private_key: '{{ .Env.NIX_PRIVATE_KEY_PATH }}' # don't forget to `ssh-keygen -t ed25519 -C "koddr.me@gmail.com"`
 
 nfpms:
   -
