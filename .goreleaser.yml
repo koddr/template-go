@@ -128,6 +128,28 @@ dockers:
     push_flags:
       - '--tls-verify=false'
 
+nix:
+  -
+    name: '{{ .ProjectName }}'
+    commit_author:
+      name: Vic Shóstak
+      email: koddr.me@gmail.com
+    commit_msg_template: 'Nix package update for {{ .ProjectName }} version {{ .Tag }}'
+    homepage: 'https://github.com/koddr/{{ .ProjectName }}'
+    description: |
+      Description of my project.
+    license: Apache 2.0
+    skip_upload: false
+    repository:
+      owner: koddr
+      name: 'nixpkg-{{ .ProjectName }}'
+      token: '{{ .Env.GITHUB_TOKEN }}'
+      pull_request:
+        enabled: true
+      git:
+        url: 'git@github.com:koddr/nixpkg-{{ .ProjectName }}.git'
+        private_key: '{{ .Env.PRIVATE_KEY_PATH }}'
+
 nfpms:
   -
     maintainer: Vic Shóstak <koddr.me@gmail.com>
