@@ -16,11 +16,13 @@ assignees: koddr
 
 **My environment:**
 
-- OS (`uname -a`):
-- Go (`go version`):
+<!-- Run 'gowebly doctor' on your terminal and put output here -->
+
+...
 
 **Describe the bug:**
-_A clear and concise description of what the bug is._
+
+<!-- A clear and concise description of what the bug is. -->
 
 ...
 
@@ -31,16 +33,19 @@ _A clear and concise description of what the bug is._
 3. ...
 
 **Expected behavior:**
-_A clear and concise description of what you expected to happen._
+
+<!-- A clear and concise description of what you expected to happen. -->
 
 ...
 
 **Screenshots:**
-_If applicable, add screenshots to help explain your problem._
+
+<!-- If applicable, add screenshots to help explain your problem. -->
 
 ...
 
 **Additional context:**
-_Any other context about the issue here._
+
+<!-- Any other context about the issue here. -->
 
 ...

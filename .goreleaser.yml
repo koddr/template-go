@@ -8,11 +8,12 @@ before:
   hooks:
     - go mod download
     - go mod tidy
-    - go run github.com/google/wire/cmd/wire@latest
+    - go run github.com/google/wire/cmd/wire@latest ./...
     - go run golang.org/x/vuln/cmd/govulncheck@latest -test ./...
     - go run github.com/google/osv-scanner/cmd/osv-scanner@latest -r .
-    - go run github.com/securego/gosec/v2/cmd/gosec@latest -quiet ./...
+    - go run github.com/securego/gosec/v2/cmd/gosec@latest -exclude=G204 -quiet ./...
     - go run github.com/go-critic/go-critic/cmd/gocritic@latest check -enableAll ./...
+    - go run github.com/gordonklaus/ineffassign@latest ./...
     - go test -race ./...
 
 builds:
@@ -21,7 +22,6 @@ builds:
     env: [ CGO_ENABLED=0 ]
     goos: [ linux, windows, darwin ]
     goarch: [ amd64, arm64 ]
-#    skip: true # useful for library projects
 
 upx:
   -
@@ -38,47 +38,51 @@ release:
   draft: true
   replace_existing_draft: true
   target_commitish: '{{ .Commit }}'
-  #  discussion_category_name: General
   prerelease: auto
   mode: replace
   header: |
-    ## ⚙️ The `{{ .Tag }}` release
+    ## ✨ The {{ .ProjectName }} `{{ .Tag }}` release
   footer: |
-    ## Install or update
+    ## How to update?
     
     For native Go installation (any platforms):
     
     ```console
     go install github.com/koddr/project@latest
     ```
-
-    For [Homebrew][brew_url] users (GNU/Linux, macOS):
+    
+    For [Homebrew][brew_url] users (GNU/Linux, Apple macOS):
     
     ```console
-    # Tap a new formula:
-    brew tap koddr/tap
-    
-    # Installation:
-    brew install koddr/tap/project
-    
-    # Upgrade to the latest:
-    brew upgrade koddr/tap/project
+    brew upgrade gowebly/tap/project
     ```
     
-    > 💡 Note: See the [`Wiki page`][wiki_url] to understand structures of JSON files and get general recommendations.
+    For [Docker][docker_url] users (any platforms):
+    
+    ```console
+    docker pull koddr/project:latest
+    ```
+    
+    For other ways (any platforms): manually download and re-install a ready-made package from the `Assets` section.
+    
+    > 💡 Note: See the [Complete user guide][project_url] to get a general information.
     
     ## Your help to improve project
     
-    I'd be truly grateful for help with:
+    We would be truly grateful for any help with:
     
-    - Creating tests (and/or benchmarks) for code
-    - Improving existing functions, structs, or tests
-    - Feature requests with interesting functions that would be good to add
+    - Creating tests and benchmarks for code;
+    - Improving existing functions, structs, or tests;
+    - Feature requests with interesting functions that would be good to add;
+    - Say a few words about the project on your social networks and blogs (Dev.to, Medium, Хабр, and so on).
     
     Your PRs & issues are welcome! Thanks 😉
     
+    <!-- Links -->
+    
     [brew_url]: https://brew.sh
-    [wiki_url]: https://github.com/koddr/project/wiki
+    [docker_url]: https://www.docker.com
+    [project_url]: https://github.com/koddr/project
   disable: false
   skip_upload: false
 
@@ -87,10 +91,10 @@ dockers:
     id: '{{ .ProjectName }}'
     ids: [ default ]
     image_templates:
-      - 'koddr/{{ .ProjectName }}:latest'
-      - 'koddr/{{ .ProjectName }}:{{ .Tag }}'
-      - 'koddr/{{ .ProjectName }}:v{{ .Major }}'
-      - 'koddr/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}'
+      - 'gowebly/{{ .ProjectName }}:latest'
+      - 'gowebly/{{ .ProjectName }}:{{ .Tag }}'
+      - 'gowebly/{{ .ProjectName }}:v{{ .Major }}'
+      - 'gowebly/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}'
     build_flag_templates:
       - '--pull'
       - '--label=org.opencontainers.image.created={{ .Date }}'
@@ -114,47 +118,31 @@ brews:
       git:
         url: 'git@github.com:koddr/homebrew-tap.git'
         private_key: '{{ .Env.BREW_PRIVATE_KEY_PATH }}'
-        # don't forget to create ssh key WITH password protection:
-        # $ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_koddr_homebrew-tap -C "koddr.me@gmail.com"
     commit_author:
       name: Vic Shóstak
       email: koddr.me@gmail.com
     commit_msg_template: 'Brew formula update for {{ .ProjectName }} version {{ .Tag }}'
     folder: Formula
     caveats: |
-      How to use this project.
+      After install:
+      
+      1. Create a new '.project.yml' config file:
+      
+        $ project init
+      
+      2. Edit a config file with your settings and options.
+      3. Run a generation process to build Docker files to deploy your project:
+      
+        $ project build
+      
+      4. Deploy your project by the generated 'docker-compose.yml' file to the remote server (for ex., with the Portainer platform).
+      
+      💡 Note: See the Complete user guide (https://github.com/koddr/project) to get a general information.
     homepage: 'https://github.com/koddr/{{ .ProjectName }}'
     description: |
       Description of my project.
     license: Apache 2.0
     skip_upload: false
-#    dependencies:
-#      - name: git
-
-#nix:
-#  -
-#    name: '{{ .ProjectName }}'
-#    commit_author:
-#      name: Vic Shóstak
-#      email: koddr.me@gmail.com
-#    commit_msg_template: 'Nix package update for {{ .ProjectName }} version {{ .Tag }}'
-#    homepage: 'https://github.com/koddr/{{ .ProjectName }}'
-#    description: |
-#      Description of my project.
-#    license: Apache 2.0
-#    skip_upload: false
-#    repository:
-#      owner: koddr
-#      name: nur
-#      branch: main
-#      token: '{{ .Env.GITHUB_TOKEN }}'
-#      pull_request:
-#        enabled: true
-#      git:
-#        url: 'git@github.com:koddr/nur.git'
-#        private_key: '{{ .Env.NIX_PRIVATE_KEY_PATH }}'
-#        # don't forget to create ssh key WITHOUT password protection:
-#        # $ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_koddr_nur -C "koddr.me@gmail.com" -N '""'
 
 nfpms:
   -
@@ -164,7 +152,6 @@ nfpms:
     homepage: 'https://github.com/koddr/{{ .ProjectName }}'
     license: Apache 2.0
     formats: [ deb, rpm, apk, archlinux ]
-#    dependencies: [ git ]
 
 archives:
   -
@@ -177,14 +164,13 @@ checksum:
   name_template: 'checksums.txt'
 
 changelog:
-#  use: github
   sort: asc
   abbrev: -1
   filters:
     exclude: [ '^*.md', '^*.ya?ml' ]
   groups:
-    - title: Features
-      regexp: ^.*?(F|f)eature.*?$
+    - title: New features
+      regexp: ^.*?((A|a)dd)|((F|f)eature).*?$
       order: 0
     - title: Bug fixes
       regexp: ^.*?((B|b)ug)|((F|f)ix).*?$
