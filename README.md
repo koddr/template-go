@@ -30,15 +30,20 @@ it to create a new [default][repo_default_config] config file:
 go run github.com/koddr/{{PROJECT}}@latest init
 ```
 
-Edit a config file with your settings and options. Next, run a generation 
-process to build Docker files to deploy your project:
+Edit a config file with your settings and options. 
+
+Next, run a generation process to build Docker files to deploy your project:
 
 ```console
 go run github.com/koddr/{{PROJECT}}@latest generate
 ```
 
-And now, deploy your project by the generated `docker-compose.yml` file to the 
-remote server (for example, with the [Portainer][portainer_url] platform).
+And now, deploy your project by the generated `Dockerfile` and 
+`docker-compose.yml` files in the current folder to the remote server 
+
+> 👆 Tip: We're strongly recommended to use the awesome 
+> [Portainer][portainer_url] platform (or a self-hosted Community Edition) 
+> for the deploying process.
 
 That's it! 🔥 A wonderful ...
 
