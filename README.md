@@ -39,9 +39,9 @@ go run github.com/koddr/{{PROJECT}}@latest generate
 ```
 
 And now, deploy your project by the generated `Dockerfile` and 
-`docker-compose.yml` files in the current folder to the remote server 
+`docker-compose.yml` files in the current folder to the remote server.
 
-> 👆 Tip: We're strongly recommended to use the awesome 
+> 👆 Tip: We are strongly recommended to use the awesome 
 > [Portainer][portainer_url] platform (or a self-hosted Community Edition) 
 > for the deploying process.
 
